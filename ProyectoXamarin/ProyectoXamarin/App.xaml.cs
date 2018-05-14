@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoXamarin.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,13 @@ namespace ProyectoXamarin
 		{
 			InitializeComponent();
 
-			MainPage = new ProyectoXamarin.MainPage();
+            var masterDetailPage = new Views.MasterDetailPage()
+            {
+                Title = "Proyecto"
+            };
+
+
+            MainPage = new Views.MasterDetailPage();
 		}
 
 		protected override void OnStart ()
