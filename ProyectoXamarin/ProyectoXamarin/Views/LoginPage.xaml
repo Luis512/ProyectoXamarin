@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoXamarin.Views.LoginPage"
+             BackgroundColor="#c4c6d1" >
+    <StackLayout>
+        <Label  Text="Proyecto Xamarin"  HeightRequest="100" VerticalTextAlignment="Center"
+                HorizontalOptions="Center" />
+        <Frame BackgroundColor="#cfd0d6" CornerRadius="0">
+            <StackLayout Orientation="Vertical" >
+                <Entry  x:Name="User"  Placeholder="Usuario"   
+                        PlaceholderColor="Gray"  
+                        TextColor="#7a7a7a" />
+                <Entry  x:Name="Password" Placeholder="Contraseña"   
+                        PlaceholderColor="Gray" 
+                        IsPassword="True"  
+                        TextColor="#7a7a7a"/>
+                <Button x:Name="LoginButton" Text="Log In" TextColor="#7a7a7a" WidthRequest="100" 
+                        VerticalOptions="EndAndExpand" BorderWidth="0" CornerRadius="0" 
+                        BackgroundColor="#8695a5" />
+                <Label  x:Name="NewUserLabel"
+                        Text="¿Nuevo usuario?"
+                        HorizontalOptions="Center" >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Tapped="OnTapNewUserTabbed"                     
+                            NumberOfTapsRequired="1" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</ContentPage>

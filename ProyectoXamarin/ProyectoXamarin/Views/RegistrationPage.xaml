@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoXamarin.Views.RegistrationPage">
+        <StackLayout>
+            <Entry x:Name="Identificacion"  Placeholder="Identificacion"   
+                    PlaceholderColor="Gray"  
+                    TextColor="#7a7a7a" />
+            <Entry x:Name="Nombre" Placeholder="Nombre"   
+                    PlaceholderColor="Gray" 
+                    TextColor="#7a7a7a"/>
+            <Entry x:Name="Apellidos"  Placeholder="Identificacion"   
+                    PlaceholderColor="Gray"  
+                    TextColor="#7a7a7a" />
+            <Entry x:Name="Password" Placeholder="Nombre"   
+                    PlaceholderColor="Gray" 
+                    TextColor="#7a7a7a"/>
+            <Button Text="Registrarse" TextColor="#7a7a7a" WidthRequest="100" 
+                    VerticalOptions="EndAndExpand" BorderWidth="0" CornerRadius="0" 
+                    BackgroundColor="#8695a5" />
+            <Button Text="Cancelar" TextColor="#7a7a7a" WidthRequest="100" 
+                    VerticalOptions="EndAndExpand" BorderWidth="0" CornerRadius="0" 
+                    BackgroundColor="#8695a5" />    
+         </StackLayout>
+</ContentPage>
