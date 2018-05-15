@@ -1,5 +1,5 @@
 ﻿using System.Collections.ObjectModel;
-
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace ProyectoXamarin.Views
@@ -21,6 +21,8 @@ namespace ProyectoXamarin.Views
 
         private void OnMenuSelected(object sender, SelectedItemChangedEventArgs e)
         {
+            var item = e.SelectedItem as MenuItem;
+            item?.Command.Execute(item);
         }
     }
 
@@ -28,5 +30,6 @@ namespace ProyectoXamarin.Views
     {
         public string Icon { get; set; }
         public string Title { get; set; }
+        public ICommand Command { get; set; }
     }
 }

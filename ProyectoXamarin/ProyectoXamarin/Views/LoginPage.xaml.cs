@@ -1,27 +1,19 @@
-﻿using ProyectoXamarin.Views;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
-namespace ProyectoXamarin
+namespace ProyectoXamarin.Views
 {
-	public partial class LoginPage : ContentPage
-	{
-		public LoginPage ()
-		{
-			InitializeComponent ();
-
-            LoginButton.Clicked += OnTabNewUser;
+    public partial class LoginPage : ContentPage
+    {
+        public LoginPage()
+        {
+            InitializeComponent();
         }
 
-        private async void OnTabNewUser(object sender, EventArgs args)
+        private async void OnTapNewUserTabbed(object sender, EventArgs args)
         {
             await Navigation.PushAsync(new RegistrationPage());
         }
-	}
+    }
 }

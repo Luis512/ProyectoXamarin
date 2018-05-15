@@ -20,7 +20,7 @@ namespace ProyectoXamarin
             };
 
 
-            MainPage = new Views.MasterDetailPage();
+            MainPage = new NavigationPage(masterDetailPage);
 		}
 
 		protected override void OnStart ()
