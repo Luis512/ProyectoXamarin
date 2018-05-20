@@ -1,37 +1,20 @@
 ﻿using ProyectoXamarin.Models;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 
 namespace ProyectoXamarin.ViewModels
 {
-    public class SeccionItem
-    {
-        public string Icon { get; set; }
-        public Seccion Seccion { get; set; }
-    }
-
-    public class ProfesorPageViewModel
+    public class SeccionListPageViewModel
     {
         public ObservableCollection<SeccionItem> Secciones { get; set; } = new ObservableCollection<SeccionItem>();
-        public Profesor Profesor { get; set; }
-        
-        public ProfesorPageViewModel()
-        {
-            GetProfesor();
-        }   
-        
-        private void GetProfesor()
-        {
-            //TODO Call service and bring 'Profesor' information
-            Profesor = new Profesor
-            {
-                Nombre = "Test",
-                Apellido = "Test",
-                Id = "123"
-            };
 
+        public SeccionListPageViewModel()
+        {
+            GetSecciones();
+        }
+
+        private void GetSecciones()
+        {
+            //TODO CALL SERVICE
             Secciones = new ObservableCollection<SeccionItem>
             {
                 new SeccionItem

@@ -4,7 +4,11 @@ using System.Text;
 
 namespace ProyectoXamarin.Models
 {
-    class Clase
+    public class Clase
     {
+        public string Id { get; set; }
+        public string Id_Seccion { get; set; }
+        public string NumeroClase { get; set; } 
+        public string Notas { get; set; }
     }
 }

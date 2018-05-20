@@ -11,10 +11,12 @@ namespace ProyectoXamarin.Views
 	public partial class ProfesorPage : ContentPage
 	{
         public ObservableCollection<SeccionItem> Secciones { get; set; } = new ObservableCollection<SeccionItem>();
+        public Profesor Profesor { get; set; }
 
         public ProfesorPage()
         {
             Secciones = new ObservableCollection<SeccionItem>();
+            Profesor = new Profesor();
 
             InitializeComponent();
 

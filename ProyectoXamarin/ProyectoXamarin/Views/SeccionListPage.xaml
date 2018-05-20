@@ -1,12 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ProyectoXamarin.Views.ProfesorListPage">
+             x:Class="ProyectoXamarin.Views.SeccionListPage">
     <ContentPage.Content>
         <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
             <ListView x:Name="SeccionList"
-                  ItemsSource="{Binding Profesores}"
-                  ItemSelected="OnSeccionSelected"
+                  ItemsSource="{Binding Secciones}"
                   HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -23,7 +22,7 @@
                                 <Label 
                                           Grid.Column="1"
                                           VerticalOptions="Center"
-                                          Text="{Binding Profesor.Nombre}"/>
+                                          Text="{Binding Seccion.Numero}"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

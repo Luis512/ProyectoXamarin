@@ -10,5 +10,6 @@ namespace ProyectoXamarin.Models
         public long Id_Profesor { get; set; }
         public string Numero { get; set; }
         public int CantidadEstudiantes { get; set; }
+        public List<Clase> Clases { get; set; }
     }
 }
