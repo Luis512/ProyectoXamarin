@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoXamarin.ViewModels;
+using System;
 
 using Xamarin.Forms;
 
@@ -9,6 +10,7 @@ namespace ProyectoXamarin.Views
         public LoginPage()
         {
             InitializeComponent();
+            BindingContext = new LoginPageViewModel();
         }
 
         private async void OnTapNewUserTabbed(object sender, EventArgs args)

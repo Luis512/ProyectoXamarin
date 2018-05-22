@@ -35,7 +35,9 @@ namespace ProyectoXamarin.ViewModels
                         Nombre = "Luis",
                         Apellido = "Alvarez",
                         Id = "12345689"
-                    }
+                    },
+                    Icon = "icon_male"
+                    
                 },
                 new ProfesorItem
                 {
@@ -44,7 +46,8 @@ namespace ProyectoXamarin.ViewModels
                         Nombre = "Annia",
                         Apellido = "Vega",
                         Id = "12345689"
-                    }
+                    },
+                    Icon = "icon_female"
                 },
                 new ProfesorItem
                 {
@@ -53,7 +56,8 @@ namespace ProyectoXamarin.ViewModels
                         Nombre = "Marco",
                         Apellido = "Alvarez",
                         Id = "12345689"
-                    }
+                    },
+                    Icon = "icon_male"
                 }
             };
 

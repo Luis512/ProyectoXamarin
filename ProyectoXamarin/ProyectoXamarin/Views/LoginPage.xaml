@@ -10,14 +10,16 @@
             <StackLayout Orientation="Vertical" >
                 <Entry  x:Name="User"  Placeholder="Usuario"   
                         PlaceholderColor="Gray"  
-                        TextColor="#7a7a7a" />
+                        TextColor="#7a7a7a"
+                        Text="{Binding Profesor.Nombre}"/>
                 <Entry  x:Name="Password" Placeholder="Contraseña"   
                         PlaceholderColor="Gray" 
                         IsPassword="True"  
-                        TextColor="#7a7a7a"/>
+                        TextColor="#7a7a7a"
+                        Text="{Binding Profesor.Password}"/>
                 <Button x:Name="LoginButton" Text="Log In" TextColor="#7a7a7a" WidthRequest="100" 
                         VerticalOptions="EndAndExpand" BorderWidth="0" CornerRadius="0" 
-                        BackgroundColor="#8695a5" />
+                        BackgroundColor="#8695a5" Command="{Binding SignIn}"/>
                 <Label  x:Name="NewUserLabel"
                         Text="¿Nuevo usuario?"
                         HorizontalOptions="Center" >

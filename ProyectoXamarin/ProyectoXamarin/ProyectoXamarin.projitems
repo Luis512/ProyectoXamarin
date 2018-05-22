@@ -22,6 +22,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Seccion.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\ProfesorService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\HomePageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LoginPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ProfesorListPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ProfesorPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SeccionListPageViewModel.cs" />

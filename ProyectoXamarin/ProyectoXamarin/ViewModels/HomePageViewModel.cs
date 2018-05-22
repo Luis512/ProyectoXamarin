@@ -1,35 +1,46 @@
-﻿using System;
-using System.Windows.Input;
+﻿using ProyectoXamarin.Views;
+using System;
+using System.ComponentModel;
 using Xamarin.Forms;
 
 namespace ProyectoXamarin.ViewModels
 {
-    public class HomePageViewModel
+    public class HomePageViewModel : INotifyPropertyChanged
     {
-        public ICommand GoToLoginCommand { get; private set; }
-        public ICommand GoToProfesorPageCommand { get; private set; }
-        public ICommand GoToSeccionPageCommand { get; private set; }
-        
-        public HomePageViewModel()
+        public Command GoToLoginCommand { get; set; }
+        public Command GoToProfesorPageCommand { get; set; }
+        public Command GoToSeccionPageCommand { get; set; }
+        public INavigation Navigation { get; set; }
+
+        public HomePageViewModel(INavigation navigation)
         {
-            GoToLoginCommand = new Command(GoToLogin());
-            GoToProfesorPageCommand = new Command(GoToProfesorPage());
-            GoToSeccionPageCommand = new Command(GoToSeccionPage());
+            Navigation = navigation;
+            GoToProfesorPageCommand = new Command(GoToProfesor);
+            GoToSeccionPageCommand = new Command(GoToSeccionPage);
+            GoToLoginCommand = new Command(GoToLogin);
         }
 
-        private Action<object> GoToSeccionPage()
+        private void GoToLogin()
         {
-            //return new RelayCommand()
+            var page = new LoginPage();
+            page.BindingContext = new LoginPageViewModel();
+            Navigation.PushAsync(page);
         }
 
-        private Action<object> GoToProfesorPage()
+        private void GoToProfesor()
         {
-            throw new NotImplementedException();
+            var page = new ProfesorListPage();
+            page.BindingContext = new ProfesorListPageViewModel();
+            Navigation.PushAsync(page);
         }
 
-        private Action<object> GoToLogin()
+        private void GoToSeccionPage()
         {
-            throw new NotImplementedException();
+            var page = new SeccionListPage();
+            page.BindingContext = new SeccionListPageViewModel();
+            Navigation.PushAsync(page);
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }
