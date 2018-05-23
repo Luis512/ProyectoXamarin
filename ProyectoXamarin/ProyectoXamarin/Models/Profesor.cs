@@ -9,7 +9,7 @@ namespace ProyectoXamarin.Models
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Password { get; set; }
-        public string Sexo { get; set; }
+        public bool Sexo { get; set; }
         public List<Seccion> Secciones { get; set; }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using ProyectoXamarin.Models;
+using ProyectoXamarin.Services;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace ProyectoXamarin.ViewModels
@@ -9,53 +11,69 @@ namespace ProyectoXamarin.ViewModels
         public Seccion Seccion { get; set; }
     }
 
-    public class ProfesorPageViewModel
+    public class ProfesorPageViewModel : BaseViewModel
     {
-        public ObservableCollection<SeccionItem> Secciones { get; set; } = new ObservableCollection<SeccionItem>();
-        public Profesor Profesor { get; set; }
-        
-        public ProfesorPageViewModel()
+        private ProfesorService service;
+
+        private ObservableCollection<SeccionItem> _secciones;
+        public ObservableCollection<SeccionItem> Secciones
         {
-            GetProfesor();
+            get
+            {
+                return _secciones;
+            }
+            set
+            {
+                if (_secciones != value)
+                {
+                    _secciones = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private Profesor _profesor;
+        public Profesor Profesor
+        {
+            get
+            {
+                return _profesor;
+            }
+            set
+            {
+                if (_profesor != value)
+                {
+                    _profesor = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        
+        public ProfesorPageViewModel(Profesor profesor)
+        {
+            service = new ProfesorService();
+            GetProfesor(profesor.Id);
         }   
         
-        private void GetProfesor()
+        private async void GetProfesor(string id)
         {
-            //TODO Call service and bring 'Profesor' information
-            Profesor = new Profesor
-            {
-                Nombre = "Test",
-                Apellido = "Test",
-                Id = "123"
-            };
+            Profesor = await service.GetProfesorAsync(id);
+            SeccionesToObservableCollection(Profesor.Secciones);
+        }
 
-            Secciones = new ObservableCollection<SeccionItem>
+        private void SeccionesToObservableCollection(List<Seccion> secciones)
+        {
+            Secciones = new ObservableCollection<SeccionItem>();
+
+            foreach(var seccion in secciones)
             {
-                new SeccionItem
+                var seccionItem = new SeccionItem
                 {
-                    Seccion = new Seccion
-                    {
-                       Numero = "1-1",
-                       CantidadEstudiantes = 30
-                    }
-},
-                 new SeccionItem
-                {
-                    Seccion = new Seccion
-                    {
-                       Numero = "1-2",
-                       CantidadEstudiantes = 25
-                    }
-                },
-                  new SeccionItem
-                {
-                    Seccion = new Seccion
-                    {
-                       Numero = "1-3",
-                       CantidadEstudiantes = 41
-                    }
-                }
-            };
+                    Icon = "icon_classroom",
+                    Seccion = seccion
+                };
+                Secciones.Add(seccionItem);
+            }
         }
     }
 }

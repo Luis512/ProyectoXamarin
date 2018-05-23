@@ -1,47 +1,38 @@
 ﻿using ProyectoXamarin.Models;
+using ProyectoXamarin.Services;
 using System.Collections.ObjectModel;
 
 namespace ProyectoXamarin.ViewModels
 {
-    public class SeccionListPageViewModel
+    public class SeccionListPageViewModel : BaseViewModel
     {
-        public ObservableCollection<SeccionItem> Secciones { get; set; } = new ObservableCollection<SeccionItem>();
+        private SeccionService service { get; set; }
+        private ObservableCollection<SeccionItem> _secciones;
+        public ObservableCollection<SeccionItem> Secciones
+        {
+            get
+            {
+                return _secciones;
+            }
+            set
+            {
+                if (_secciones != value)
+                {
+                    _secciones = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         public SeccionListPageViewModel()
         {
+            service = new SeccionService();
             GetSecciones();
         }
 
-        private void GetSecciones()
+        private async void GetSecciones()
         {
-            //TODO CALL SERVICE
-            Secciones = new ObservableCollection<SeccionItem>
-            {
-                new SeccionItem
-                {
-                    Seccion = new Seccion
-                    {
-                       Numero = "1-1",
-                       CantidadEstudiantes = 30
-                    }
-},
-                 new SeccionItem
-                {
-                    Seccion = new Seccion
-                    {
-                       Numero = "1-2",
-                       CantidadEstudiantes = 25
-                    }
-                },
-                  new SeccionItem
-                {
-                    Seccion = new Seccion
-                    {
-                       Numero = "1-3",
-                       CantidadEstudiantes = 41
-                    }
-                }
-            };
+            Secciones = await service.GetSeccionesAsync();
         }
     }
 }

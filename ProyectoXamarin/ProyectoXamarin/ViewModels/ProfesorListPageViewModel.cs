@@ -2,6 +2,9 @@
 using ProyectoXamarin.Services;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace ProyectoXamarin.ViewModels
@@ -12,57 +15,36 @@ namespace ProyectoXamarin.ViewModels
         public Profesor Profesor { get; set; }
     }
 
-    public class ProfesorListPageViewModel
+    public class ProfesorListPageViewModel : BaseViewModel
     {
-        public ObservableCollection<ProfesorItem> Profesores { get; set; } = new ObservableCollection<ProfesorItem>();
-
         private ProfesorService service { get; set; }
+        private ObservableCollection<ProfesorItem> _profesores;
+
+        public ObservableCollection<ProfesorItem> Profesores
+        {
+            get
+            {
+                return _profesores;
+            }
+            set
+            {
+                if (_profesores != value)
+                {
+                    _profesores = value;
+                    OnPropertyChanged();
+                }
+            }
+        }        
 
         public ProfesorListPageViewModel()
         {
-            Profesores = GetProfesores();
-        }
-
-       public ObservableCollection<ProfesorItem> GetProfesores()
-        {
-            //var profesores = await service.GetProfesoresAsync();
-            var profesores = new ObservableCollection<ProfesorItem>
-            {
-                new ProfesorItem
-                {
-                    Profesor = new Profesor
-                    {
-                        Nombre = "Luis",
-                        Apellido = "Alvarez",
-                        Id = "12345689"
-                    },
-                    Icon = "icon_male"
-                    
-                },
-                new ProfesorItem
-                {
-                    Profesor = new Profesor
-                    {
-                        Nombre = "Annia",
-                        Apellido = "Vega",
-                        Id = "12345689"
-                    },
-                    Icon = "icon_female"
-                },
-                new ProfesorItem
-                {
-                    Profesor = new Profesor
-                    {
-                        Nombre = "Marco",
-                        Apellido = "Alvarez",
-                        Id = "12345689"
-                    },
-                    Icon = "icon_male"
-                }
-            };
-
-            return profesores;
+            service = new ProfesorService();
+            GetProfesores();
         }
        
+        public async void GetProfesores()
+        {
+            Profesores = await service.GetProfesoresAsync();
+        }
     }
 }

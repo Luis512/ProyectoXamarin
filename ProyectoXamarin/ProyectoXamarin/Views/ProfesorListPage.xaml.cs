@@ -1,5 +1,7 @@
 ﻿using ProyectoXamarin.ViewModels;
+using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,8 +17,21 @@ namespace ProyectoXamarin.Views
             Profesores = new ObservableCollection<ProfesorItem>();
 
             InitializeComponent ();
+        }
 
-            BindingContext = new ProfesorListPageViewModel();
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            IsBusy = true;
+            try
+            {
+                BindingContext = new ProfesorListPageViewModel();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         void OnSeccionSelected(object sender, SelectedItemChangedEventArgs e)
@@ -24,7 +39,9 @@ namespace ProyectoXamarin.Views
             var profesor = ((ListView)sender).SelectedItem as ProfesorItem;
             if (profesor == null)
                 return;
-            DisplayAlert("Seleccionado:", $"{profesor.Profesor.Nombre}", "Cerrar");
+            var page = new ProfesorPage();
+            page.BindingContext = new ProfesorPageViewModel(profesor.Profesor);
+            Navigation.PushAsync(page);
         }
     }
 }

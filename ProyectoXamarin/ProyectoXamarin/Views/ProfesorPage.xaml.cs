@@ -19,9 +19,8 @@ namespace ProyectoXamarin.Views
             Profesor = new Profesor();
 
             InitializeComponent();
-
-            BindingContext = new ProfesorPageViewModel();
         }
+
 
         void OnSeccionSelected(object sender, SelectedItemChangedEventArgs e)
         {

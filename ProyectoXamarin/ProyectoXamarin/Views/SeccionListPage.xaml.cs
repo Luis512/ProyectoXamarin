@@ -1,5 +1,5 @@
 ﻿using ProyectoXamarin.ViewModels;
-
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,9 +11,21 @@ namespace ProyectoXamarin.Views
 		public SeccionListPage ()
 		{
 			InitializeComponent ();
-
-            BindingContext = new SeccionListPageViewModel();
-
         }
-	}
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            IsBusy = true;
+            try
+            {
+                BindingContext = new SeccionListPageViewModel();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+    }
 }
