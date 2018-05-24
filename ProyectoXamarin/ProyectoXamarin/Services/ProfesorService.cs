@@ -67,5 +67,38 @@ namespace ProyectoXamarin.Services
             }
         }
 
+        public async Task<bool> RegisterProfesorAsync(Profesor profesor)
+        {
+            if (!CrossConnectivity.Current.IsConnected)
+            {
+                Debug.WriteLine("No Connection");
+                return false;
+            }
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(SERVICE_ENDPOINT_PROFESOR);
+                client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json; charset=utf-8");
+
+                var httpContent = new FormUrlEncodedContent(
+               new[]
+                {
+                    new KeyValuePair<string, string>("id", profesor.Id),
+                    new KeyValuePair<string, string>("nombre", value:profesor.Nombre),
+                    new KeyValuePair<string, string>("apellido", value:profesor.Apellido),
+                    new KeyValuePair<string, string>("password", profesor.Password),
+                    new KeyValuePair<string, string>("sexo", profesor.Sexo.ToString())
+
+                });
+
+                var response = await client.PostAsync("register", httpContent);
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                    return false;
+                return true;
+            }
+        }
+
+
+
     }
 }

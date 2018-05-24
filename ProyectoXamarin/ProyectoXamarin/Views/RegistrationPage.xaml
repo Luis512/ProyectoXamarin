@@ -1,25 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ProyectoXamarin.Views.RegistrationPage">
-        <StackLayout>
+             x:Class="ProyectoXamarin.Views.RegistrationPage"
+             Title="Registro">
+        <StackLayout Margin="5">
             <Entry x:Name="Identificacion"  Placeholder="Identificacion"   
                     PlaceholderColor="Gray"  
-                    TextColor="#7a7a7a" />
+                    TextColor="#7a7a7a" 
+                   Text="{Binding Profesor.Id}"/>
             <Entry x:Name="Nombre" Placeholder="Nombre"   
                     PlaceholderColor="Gray" 
-                    TextColor="#7a7a7a"/>
-            <Entry x:Name="Apellidos"  Placeholder="Identificacion"   
+                    TextColor="#7a7a7a"
+                   Text="{Binding Profesor.Nombre}"/>
+            <Entry x:Name="Apellidos"  Placeholder="Apellido"   
                     PlaceholderColor="Gray"  
-                    TextColor="#7a7a7a" />
-            <Entry x:Name="Password" Placeholder="Nombre"   
+                    TextColor="#7a7a7a" 
+                   Text="{Binding Profesor.Apellido}"/>
+            <Entry x:Name="Password" Placeholder="Password"   
                     PlaceholderColor="Gray" 
-                    TextColor="#7a7a7a"/>
-            <Button Text="Registrarse" TextColor="#7a7a7a" WidthRequest="100" 
-                    VerticalOptions="EndAndExpand" BorderWidth="0" CornerRadius="0" 
-                    BackgroundColor="#8695a5" />
-            <Button Text="Cancelar" TextColor="#7a7a7a" WidthRequest="100" 
-                    VerticalOptions="EndAndExpand" BorderWidth="0" CornerRadius="0" 
-                    BackgroundColor="#8695a5" />    
-         </StackLayout>
+                    TextColor="#7a7a7a"
+                   Text="{Binding Profesor.Password}"/>
+            <Picker ItemsSource="{Binding Sexo}" 
+                    SelectedItem="{Binding SexoSeleccionado}" 
+                    Title="Seleccione el genero"></Picker>
+        
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+            
+                <Button Text="Registrarse" TextColor="White" WidthRequest="100"
+                            VerticalOptions="EndAndExpand" BorderWidth="0" CornerRadius="0" 
+                            BackgroundColor="#8695a5" 
+                            Command="{Binding RegisterCommand}"
+                            Grid.Column="0"/>
+                <Button Text="Cancelar" TextColor="White" WidthRequest="100" 
+                            VerticalOptions="EndAndExpand" BorderWidth="0" CornerRadius="0" 
+                            BackgroundColor="#8695a5"
+                            Grid.Column="1"/>
+            </Grid>
+
+        </StackLayout>
 </ContentPage>
