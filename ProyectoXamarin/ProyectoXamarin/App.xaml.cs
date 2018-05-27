@@ -1,9 +1,4 @@
-﻿using ProyectoXamarin.Views;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿
 using Xamarin.Forms;
 
 namespace ProyectoXamarin
@@ -14,7 +9,7 @@ namespace ProyectoXamarin
 		{
 			InitializeComponent();
 
-            var masterDetailPage = new HomePage();
+            var masterDetailPage = new Views.MasterDetailPage();
 
             MainPage = new NavigationPage(masterDetailPage);
 		}

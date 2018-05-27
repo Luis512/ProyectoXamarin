@@ -25,7 +25,8 @@
                 <Button Text="Eliminar" TextColor="White" WidthRequest="100" 
                             VerticalOptions="EndAndExpand" BorderWidth="0" CornerRadius="0" 
                             BackgroundColor="#8695a5"
-                            Grid.Column="1"/>
+                            Grid.Column="1"
+                        Command="{Binding DeleteCommand}"/>
             </Grid>
         </StackLayout>
     </ContentPage.Content>

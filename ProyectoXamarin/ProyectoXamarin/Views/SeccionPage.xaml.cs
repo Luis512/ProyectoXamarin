@@ -20,7 +20,7 @@ namespace ProyectoXamarin.Views
             if (clase == null)
                 return;
             var page = new ClasePage();
-            page.BindingContext = new ClasePageViewModel(clase.Clase.Id.ToString());
+            page.BindingContext = new ClasePageViewModel(clase.Clase.Id.ToString(), Navigation);
             Navigation.PushAsync(page);
         }
     }

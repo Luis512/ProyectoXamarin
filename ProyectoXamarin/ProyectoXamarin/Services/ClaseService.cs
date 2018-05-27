@@ -69,6 +69,20 @@ namespace ProyectoXamarin.Services
                 var response = await client.GetStringAsync("seccion/" + id);
                 return JsonConvert.DeserializeObject<List<Clase>>(response);
             }
-        }      
+        }
+
+        public async Task<bool> DeleteClaseAsync(string id)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(SERVICE_ENDPOINT_CLASE);
+        
+                var response = await client.DeleteAsync(id);
+
+                if (!response.IsSuccessStatusCode)
+                    return false;
+                return true;
+            }
+        }
     }
 }
