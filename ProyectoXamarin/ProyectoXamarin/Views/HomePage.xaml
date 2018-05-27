@@ -19,8 +19,6 @@
                 <Button Grid.Row="1" Grid.Column="0" Text="Iniciar Sesión" Grid.ColumnSpan="2" Command="{Binding GoToLoginCommand}" />
                 <Button Grid.Row="2" Grid.Column="0" Text="Profesores" Command="{Binding GoToProfesorPageCommand}"/>
                 <Button Grid.Row="2" Grid.Column="1" Text="Secciones" Command="{Binding GoToSeccionPageCommand}"/>
-                <Button Grid.Row="3" Grid.Column="0" Text="Clases"/>
-                <Button Grid.Row="3" Grid.Column="1" Text="Ayuda"/>
             </Grid>
         </StackLayout>
     </ContentPage.Content>

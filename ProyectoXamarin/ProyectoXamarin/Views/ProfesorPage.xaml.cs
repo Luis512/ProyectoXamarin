@@ -21,13 +21,15 @@ namespace ProyectoXamarin.Views
             InitializeComponent();
         }
 
-
         void OnSeccionSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var seccion = ((ListView)sender).SelectedItem as SeccionItem;
             if (seccion == null)
                 return;
-            DisplayAlert("Seleccionado:", $"{seccion.Seccion.Numero}", "Cerrar");
+            var nombreProfesor = string.Format("{0} {1}", Profesor.Nombre, Profesor.Apellido);
+            var page = new SeccionPage();
+            page.BindingContext = new SeccionPageViewModel(seccion.Seccion);
+            Navigation.PushAsync(page);
         }
     }
 

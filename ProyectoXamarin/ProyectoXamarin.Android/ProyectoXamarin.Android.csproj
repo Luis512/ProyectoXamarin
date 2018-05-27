@@ -112,6 +112,9 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon_user.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
+  </ItemGroup>
   <Import Project="..\ProyectoXamarin\ProyectoXamarin.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

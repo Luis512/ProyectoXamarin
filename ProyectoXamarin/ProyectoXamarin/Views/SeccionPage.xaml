@@ -1,10 +1,60 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoXamarin.Views.SeccionPage">
-  <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
-  </ContentView.Content>
-</ContentView>
+  <ContentPage.Content>
+        <StackLayout>
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="100" Margin="5"  >
+                <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition  Width="80"/>
+                        <ColumnDefinition  />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Text="Seccion" FontSize="8" HorizontalOptions="End"/>
+                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Seccion.Numero}"/>
+                    <Label Grid.Row="1" Grid.Column="0" Text="Estudiantes" FontSize="8" HorizontalOptions="End" />
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Seccion.CantidadEstudiantes}"/>
+                    <Label Grid.Row="2" Grid.Column="0" Text="Profesor" FontSize="8" HorizontalOptions="End" />
+                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding Profesor}"/>
+                </Grid>
+            </StackLayout>
+            <BoxView  HeightRequest="1" BackgroundColor="Gray" Margin="5"/>
+            <Frame BackgroundColor="#eaf0f9" CornerRadius="0" Margin="3"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <ListView x:Name="SeccionList"
+                  ItemsSource="{Binding Clases}"
+                 ItemSelected="OnClaseSelected"
+                  HasUnevenRows="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image 
+                                          Margin="4"
+                                          WidthRequest="50"
+                                          HeightRequest="50"
+                                          Source="{Binding Icon}"/>
+                                        <Label 
+                                          Grid.Column="1"
+                                          VerticalOptions="Center"
+                                          HorizontalOptions="Center"
+                                          Text="{Binding Clase.Numero}"/>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

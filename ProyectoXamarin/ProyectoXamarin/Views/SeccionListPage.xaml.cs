@@ -27,5 +27,15 @@ namespace ProyectoXamarin.Views
                 throw;
             }
         }
+
+        void OnSeccionSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var seccion = ((ListView)sender).SelectedItem as SeccionItem;
+            if (seccion == null)
+                return;
+            var page = new SeccionPage();
+            page.BindingContext = new SeccionPageViewModel(seccion.Seccion);
+            Navigation.PushAsync(page);
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace ProyectoXamarin
 		{
 			InitializeComponent();
 
-            var masterDetailPage = new Views.MasterDetailPage();
+            var masterDetailPage = new HomePage();
 
             MainPage = new NavigationPage(masterDetailPage);
 		}

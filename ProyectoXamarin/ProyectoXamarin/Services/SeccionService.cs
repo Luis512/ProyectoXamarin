@@ -1,9 +1,11 @@
 ﻿using Newtonsoft.Json;
+using Plugin.Connectivity;
 using ProyectoXamarin.Models;
 using ProyectoXamarin.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -43,6 +45,24 @@ namespace ProyectoXamarin.Services
                 client.BaseAddress = new Uri(SERVICE_ENDPOINT_SECCION);
                 var response = await client.GetStringAsync("profesor/"+id);
                return JsonConvert.DeserializeObject<List<Seccion>>(response);
+            }
+        }
+
+        public async Task<Seccion> GetSeccionAsync(string id)
+        {
+            if (!CrossConnectivity.Current.IsConnected)
+            {
+                Debug.WriteLine("No Connection");
+                return null;
+            }
+            ClaseService service = new ClaseService();
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(SERVICE_ENDPOINT_SECCION);
+                var response = await client.GetStringAsync(id);
+                Seccion seccion = JsonConvert.DeserializeObject<Seccion>(response);
+                seccion.Clases =await service.GetClasesBySeccion(id);
+                return seccion;
             }
         }
     }

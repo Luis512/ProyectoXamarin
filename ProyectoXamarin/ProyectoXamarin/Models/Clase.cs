@@ -6,9 +6,9 @@ namespace ProyectoXamarin.Models
 {
     public class Clase
     {
-        public string Id { get; set; }
-        public string Id_Seccion { get; set; }
-        public string NumeroClase { get; set; } 
+        public long Id { get; set; }
+        public long Id_Seccion { get; set; }
+        public string Numero { get; set; } 
         public string Notas { get; set; }
     }
 }
