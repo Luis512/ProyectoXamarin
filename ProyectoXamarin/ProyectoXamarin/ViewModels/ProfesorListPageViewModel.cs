@@ -13,6 +13,7 @@ namespace ProyectoXamarin.ViewModels
     {
         public string Icon { get; set; }
         public Profesor Profesor { get; set; }
+        public string NombreCompleto { get; set; }
     }
 
     public class ProfesorListPageViewModel : BaseViewModel

@@ -38,7 +38,8 @@ namespace ProyectoXamarin.Services
                     var profesorItem = new ProfesorItem
                     {
                         Icon = profesor.Sexo ? "icon_male" : "icon_female",
-                        Profesor = profesor
+                        Profesor = profesor,
+                        NombreCompleto = string.Format("{0} - {1} {2}",profesor.Id, profesor.Nombre, profesor.Apellido)
                     };
                     profesores.Add(profesorItem);
                 }

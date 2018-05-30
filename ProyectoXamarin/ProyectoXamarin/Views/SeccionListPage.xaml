@@ -7,25 +7,30 @@
         <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="5">
             <ListView x:Name="SeccionList"
                   ItemsSource="{Binding Secciones}"
-                      ItemSelected="OnSeccionSelected"
+                  ItemTapped="OnSeccionSelected"
                   HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="80"/>
+                                </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 <Image 
                                           Margin="3"
-                                          WidthRequest="50"
-                                          HeightRequest="50"
+                                          WidthRequest="60"
+                                          HeightRequest="60"
                                           Source="{Binding Icon}"/>
                                 <Label 
                                           Grid.Column="1"
                                           VerticalOptions="Center"
-                                          Text="{Binding Seccion.Numero}"/>
+                                          Text="{Binding Informacion}"
+                                          FontSize="Medium"
+                                    />
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

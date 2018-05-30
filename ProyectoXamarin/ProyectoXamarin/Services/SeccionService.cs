@@ -29,7 +29,8 @@ namespace ProyectoXamarin.Services
                     var seccionItem = new SeccionItem
                     {
                         Icon = "icon_classroom",
-                        Seccion = seccion
+                        Seccion = seccion,
+                        Informacion = string.Format("{0} - {1} estudiantes", seccion.Numero, seccion.CantidadEstudiantes)
                     };
                     secciones.Add(seccionItem);
                 }

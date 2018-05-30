@@ -9,6 +9,7 @@ namespace ProyectoXamarin.ViewModels
     {
         public string Icon { get; set; }
         public Seccion Seccion { get; set; }
+        public string Informacion { get; set; }
     }
 
     public class ProfesorPageViewModel : BaseViewModel
@@ -70,7 +71,8 @@ namespace ProyectoXamarin.ViewModels
                 var seccionItem = new SeccionItem
                 {
                     Icon = "icon_classroom",
-                    Seccion = seccion
+                    Seccion = seccion,
+                    Informacion = string.Format("{0} - {1} estudiantes", seccion.Numero, seccion.CantidadEstudiantes)
                 };
                 Secciones.Add(seccionItem);
             }

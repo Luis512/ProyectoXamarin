@@ -10,12 +10,15 @@
             <DataTemplate>
                 <ViewCell>
                     <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80"/>
+                        </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" ></ColumnDefinition>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Image  WidthRequest="40"
-                                HeightRequest="40"
+                        <Image  WidthRequest="60"
+                                HeightRequest="60"
                                 Margin="3"
                                 Source="{Binding Icon}"></Image>
                         <Label  Grid.Column="1"
