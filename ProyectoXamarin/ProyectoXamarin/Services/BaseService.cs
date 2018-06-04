@@ -6,8 +6,8 @@ namespace ProyectoXamarin.Services
 {
     public class BaseService
     {
-        public static string SERVICE_ENDPOINT_SECCION = "http://18.191.71.34:8080/seccion/";
-        public static string SERVICE_ENDPOINT_PROFESOR = "http://18.191.71.34:8080/profesor/";
-        public static string SERVICE_ENDPOINT_CLASE = "http://18.191.71.34:8080/clase/";
+        public static string SERVICE_ENDPOINT_SECCION = "http://192.168.1.108:8080/seccion/";
+        public static string SERVICE_ENDPOINT_PROFESOR = "http://192.168.1.108:8080/profesor/";
+        public static string SERVICE_ENDPOINT_CLASE = "http://192.168.1.108:8080/clase/";
     }
 }

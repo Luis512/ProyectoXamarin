@@ -84,5 +84,32 @@ namespace ProyectoXamarin.Services
                 return true;
             }
         }
+
+        public async Task<bool> UpdateClaseAsync(Clase clase)
+        {
+            if (!CrossConnectivity.Current.IsConnected)
+            {
+                Debug.WriteLine("No Connection");
+                return false;
+            }
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(SERVICE_ENDPOINT_CLASE);
+                client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json; charset=utf-8");
+
+                var httpContent = new FormUrlEncodedContent(
+               new[]
+                {
+                   new KeyValuePair<string, string>("idseccion", clase.Id_Seccion.ToString()),
+                   new KeyValuePair<string, string>("notas", value:clase.Notas),
+                });
+
+                var response = await client.PutAsync("update", httpContent);
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                    return false;
+                return true;
+            }
+        }
     }
 }

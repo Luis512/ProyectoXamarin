@@ -1,12 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ProyectoXamarin.Views.ClaseEdit">
+             x:Class="ProyectoXamarin.Views.ClaseEdit"
+             Title="{Binding Clase.Numero}">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Margin="5">
+            <Frame BackgroundColor="#cfd0d6" CornerRadius="0" Margin="2"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <StackLayout>
+                    <Label Text="Notas" FontSize="Large"/>
+                    <Editor WidthRequest="60" HeightRequest="100" Text="{Binding Clase.Notas}" BackgroundColor="WhiteSmoke"/>
+                </StackLayout>
+            </Frame>
+            <Button Text="Actualizar" TextColor="White" WidthRequest="100"
+                            VerticalOptions="EndAndExpand" BorderWidth="0" CornerRadius="0" 
+                            BackgroundColor="#8695a5"                          
+                            Grid.Column="0"
+                    Command="{Binding UpdateCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

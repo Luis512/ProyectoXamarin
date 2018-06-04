@@ -25,6 +25,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\ProfesorService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\SeccionService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ClaseEditPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ClasePageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\HomePageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LoginPageViewModel.cs" />

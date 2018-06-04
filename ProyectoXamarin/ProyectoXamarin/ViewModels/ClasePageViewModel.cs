@@ -1,5 +1,6 @@
 ﻿using ProyectoXamarin.Models;
 using ProyectoXamarin.Services;
+using ProyectoXamarin.Views;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,6 +13,7 @@ namespace ProyectoXamarin.ViewModels
     {
         public ClaseService service { get; set; }
         public Command DeleteCommand { get; set; }
+        public Command GoToUpdateCommand { get; set; }
         public INavigation Navigation { get; set; }
         public string Id { get; set; } = string.Empty;
 
@@ -37,8 +39,16 @@ namespace ProyectoXamarin.ViewModels
             Navigation = navigation;
             service = new ClaseService();
             DeleteCommand = new Command(DeleteClase);
+            GoToUpdateCommand = new Command(GotoUpdate);
             Id = id;
             GetClase();
+        }
+
+        private void GotoUpdate()
+        {
+            var page = new ClaseEdit();
+            page.BindingContext = new ClaseEditPageViewModel(Clase, Navigation);
+            Navigation.PushAsync(page);
         }
 
         private async void GetClase()
