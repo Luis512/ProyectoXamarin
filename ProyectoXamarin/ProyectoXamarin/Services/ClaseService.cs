@@ -77,7 +77,7 @@ namespace ProyectoXamarin.Services
             {
                 client.BaseAddress = new Uri(SERVICE_ENDPOINT_CLASE);
         
-                var response = await client.DeleteAsync(id);
+                var response = await client.DeleteAsync("delete/"+id);
 
                 if (!response.IsSuccessStatusCode)
                     return false;
@@ -101,7 +101,7 @@ namespace ProyectoXamarin.Services
                 var httpContent = new FormUrlEncodedContent(
                new[]
                 {
-                   new KeyValuePair<string, string>("idseccion", clase.Id_Seccion.ToString()),
+                   new KeyValuePair<string, string>("idseccion", clase.Id.ToString()),
                    new KeyValuePair<string, string>("notas", value:clase.Notas),
                 });
 

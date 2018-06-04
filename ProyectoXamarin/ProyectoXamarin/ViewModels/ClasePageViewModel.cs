@@ -60,7 +60,7 @@ namespace ProyectoXamarin.ViewModels
         {
             var wasSuccessful = await service.DeleteClaseAsync(Id);
 
-            if (!wasSuccessful) { 
+            if (wasSuccessful) { 
                 Debug.WriteLine("Se elimino correctamente");
                 await Navigation.PopAsync();
             }
