@@ -24,16 +24,16 @@ Bugs:
 
 API - Aula Virtual:
 
-GET    /clase/list : Obtiene la lista completa de clases.
-GET    /clase/{id} : Obtiene una clase basado en su id. 
-DELETE /clase/{id} : Elimina una clase basado en su id.
-POST   /clase/new : Crea una nueva clase.
-GET    /clase/seccion/{id} : Obtiene una lista de clases basado en el id de una seccion.
+- GET    /clase/list : Obtiene la lista completa de clases.
+- GET    /clase/{id} : Obtiene una clase basado en su id. 
+- DELETE /clase/{id} : Elimina una clase basado en su id.
+- POST   /clase/new : Crea una nueva clase.
+- GET    /clase/seccion/{id} : Obtiene una lista de clases basado en el id de una seccion.
 
-GET    /profesor/list : Obtiene la lista completa de profesor.
-GET    /profesor/{id} : Obtiene un profesor basado en su id.
-POST   /profesor/register : Crea un nuevo profesor.
+- GET    /profesor/list : Obtiene la lista completa de profesor.
+- GET    /profesor/{id} : Obtiene un profesor basado en su id.
+- POST   /profesor/register : Crea un nuevo profesor.
 
-GET    /seccion/list : Obtiene la lista completa de clases.
-GET    /seccion/{id} : Obtiene una seccion basado en su id.
-GET    /seccion/profesor/{id} : Obtiene una lista de secciones basado en el id de un profesor.
+- GET    /seccion/list : Obtiene la lista completa de clases.
+- GET    /seccion/{id} : Obtiene una seccion basado en su id.
+- GET    /seccion/profesor/{id} : Obtiene una lista de secciones basado en el id de un profesor.
